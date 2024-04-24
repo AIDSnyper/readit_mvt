@@ -1,0 +1,280 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/readit/blog-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 14:16:18 GMT -->
+<head>
+    <title>Readit - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/open-iconic-bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.theme.default.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+    <link rel="stylesheet" href="{% static "css/aos.css" %}">
+    <link rel="stylesheet" href="{% static "css/ionicons.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/flaticon.css" %}">
+    <script src="https://kit.fontawesome.com/a7ab2d04e4.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static "css/icomoon.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <script nonce="95bca1c6-e547-458f-8d58-2aa6d1782b64">(function (w, d) {
+        !function (bb, bc, bd, be) {
+            bb[bd] = bb[bd] || {};
+            bb[bd].executed = [];
+            bb.zaraz = {deferred: [], listeners: []};
+            bb.zaraz.q = [];
+            bb.zaraz._f = function (bf) {
+                return async function () {
+                    var bg = Array.prototype.slice.call(arguments);
+                    bb.zaraz.q.push({m: bf, a: bg})
+                }
+            };
+            for (const bh of ["track", "set", "debug"]) bb.zaraz[bh] = bb.zaraz._f(bh);
+            bb.zaraz.init = () => {
+                var bi = bc.getElementsByTagName(be)[0], bj = bc.createElement(be),
+                    bk = bc.getElementsByTagName("title")[0];
+                bk && (bb[bd].t = bc.getElementsByTagName("title")[0].text);
+                bb[bd].x = Math.random();
+                bb[bd].w = bb.screen.width;
+                bb[bd].h = bb.screen.height;
+                bb[bd].j = bb.innerHeight;
+                bb[bd].e = bb.innerWidth;
+                bb[bd].l = bb.location.href;
+                bb[bd].r = bc.referrer;
+                bb[bd].k = bb.screen.colorDepth;
+                bb[bd].n = bc.characterSet;
+                bb[bd].o = (new Date).getTimezoneOffset();
+                if (bb.dataLayer) for (const bo of Object.entries(Object.entries(dataLayer).reduce(((bp, bq) => ({...bp[1], ...bq[1]})), {}))) zaraz.set(bo[0], bo[1], {scope: "page"});
+                bb[bd].q = [];
+                for (; bb.zaraz.q.length;) {
+                    const br = bb.zaraz.q.shift();
+                    bb[bd].q.push(br)
+                }
+                bj.defer = !0;
+                for (const bs of [localStorage, sessionStorage]) Object.keys(bs || {}).filter((bu => bu.startsWith("_zaraz_"))).forEach((bt => {
+                    try {
+                        bb[bd]["z_" + bt.slice(7)] = JSON.parse(bs.getItem(bt))
+                    } catch {
+                        bb[bd]["z_" + bt.slice(7)] = bs.getItem(bt)
+                    }
+                }));
+                bj.referrerPolicy = "origin";
+                bj.src = "https://preview.colorlib.com/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(bb[bd])));
+                bi.parentNode.insertBefore(bj, bi)
+            };
+            ["complete", "interactive"].includes(bc.readyState) ? zaraz.init() : bb.addEventListener("DOMContentLoaded", zaraz.init)
+        }(w, d, "zarazData", "script");
+    })(window, document);</script>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/static/images/bg_1.jpg');"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+                <h1 class="mb-3 bread">Blog Single</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="blog.html">Blog <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span>Blog Single <i
+                        class="ion-ios-arrow-forward"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                <p class="mb-5">
+                    <img src="images/image_1.jpg" alt class="img-fluid">
+                </p>
+                <h2 class="mb-3">{{ model.title }}</h2>
+                <p>{{ model.about }}</p>
+                <p class="mb-5">
+                    <img src="images/image_2.jpg" alt class="img-fluid">
+                </p>
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                    <div class="tagcloud">
+                        <a href="#" class="tag-cloud-link">{{ model.tag.tag }}</a>
+                        <a href="#" class="tag-cloud-link">{{ model.category.cat }}</a>
+                    </div>
+                </div>
+                <div class="about-author d-flex p-4 bg-light">
+                    <div class="bio mr-5">
+                        <img width="130px" src="{{ model.user.avatar.url }}" alt="Image placeholder"
+                             class="img-fluid mb-4">
+                    </div>
+                    <div class="desc">
+                        <h3>{{ model.user.name }} {{ model.user.lname }}</h3>
+                        <p>{{ model.user.bio }}</p>
+                    </div>
+                </div>
+                <div class="pt-5 mt-5">
+                    <h3 class="mb-5">{{ model.get_commets.count }} Comments</h3>
+                    <ul class="comment-list">
+                        <li class="comment">
+                            {% for i in comments %}
+{#                                {% if i.is_parent %}#}
+                                    <div class="vcard bio">
+                                        <img src="{{ i.user.avatar.url }}" alt="Image placeholder">
+                                    </div>
+                                    <div class="comment-body">
+                                        <h3>@{{ i.user.username }}</h3>
+                                        <div class="meta mb-3">{{ i.created | date:"M d, Y at" }} {{ i.created.hour }}:{{ i.created.minute }}</div>
+                                        <p>{{ i.message }}</p>
+                                        <form action="" method="POST" id="main_form" class="comment_form">
+                                            <div>
+                                                <input class="form-control" style="width: 55%" type="text"
+                                                       name="message"> <input
+                                                    type="hidden" value="{{ i.pk }}" name="parent"> {% csrf_token %}
+                                            </div>
+                                        </form>
+                                    </div>
+{#                                {% elif %}#}
+                                    {% for j in i.children %}
+                                        <ul class="children">
+                                            <li class="comment">
+                                                <div class="vcard bio">
+                                                    <img src="{{ j.user.avatar.url }}" alt="Image placeholder">
+                                                </div>
+                                                <div class="comment-body">
+                                                    <h3>@{{ j.user.username }}<i class="fa-solid fa-arrow-right fa-flip"
+                                                                                 style="color: #000000; width: 20px"></i>
+                                                        @{{ j.parent.user.username }}</h3>
+                                                    <div class="meta mb-3">{{ j.created | date:"M d, Y at" }} {{ j.created.hour }}:{{ j.created.minute }}</div>
+                                                    <p>{{ j.message }}</p>
+                                                    <form action="" method="POST" id="main_form" class="comment_form">
+                                                        <div>
+                                                            <input class="form-control" style="width: 55%" type="text"
+                                                                   name="message">
+                                                            <input type="hidden" value="{{ j.id }}"
+                                                                   name="parent"> {% csrf_token %}
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    {% endfor %}
+{#                                {% endif %}#}
+                            {% endfor %}
+
+                        </li>
+                    </ul>
+
+                    <div class="comment-form-wrap pt-5">
+                        <h3 class="mb-5">Leave a comment</h3>
+                        <form method="post" class="p-5 bg-light">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name">Message *</label>
+                                {{ comment_form.message }}
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
+                <div class="sidebar-box">
+                    <form method="GET" class="search-form">
+                        <div class="form-group">
+                            <span class="icon icon-search"></span>
+                            <input name="/?q" type="text" class="form-control"
+                                   placeholder="Type a keyword and hit enter">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        {% for i in cats %}
+                            <li><a href="/articles/?q={{ i.cat }}">{{ i.cat }} <span
+                                    class="ion-ios-arrow-forward"></span></a></li>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3>Recent Blog</h3>
+                    {% for i in blogs %}
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url({{ i.image.url }});"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="{% url 'sblog' i.id %}">{{ i.title }}</a></h3>
+                                <div class="meta">
+                                    <div><a href="#"><span
+                                            class="icon-calendar"></span> {{ i.created | date:'M. d, Y' }}</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> {{ i.user.username }}</a></div>
+                                    <div><a href="#"><span class="icon-chat"></span> {{ i.get_commets.count }}</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3>Tag Cloud</h3>
+                    <div class="tagcloud">
+                        {% for i in tags %}
+                            <a href="/articles/?q={{ i.tag }}" class="tag-cloud-link">{{ i.tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script src="{% static "js/jquery-migrate-3.0.1.min.js" %}"></script>
+<script src="{% static "js/popper.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
+<script src="{% static "js/jquery.waypoints.min.js" %}"></script>
+<script src="{% static "js/jquery.stellar.min.js" %}"></script>
+<script src="{% static "js/owl.carousel.min.js" %}"></script>
+<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+<script src="{% static "js/aos.js" %}"></script>
+<script src="{% static "js/jquery.animateNumber.min.js" %}"></script>
+<script src="{% static "js/scrollax.min.js" %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+<script src="{% static "js/google-map.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+        data-cf-beacon='{"rayId":"822e6da14a3b0d2e","b":1,"version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
+        crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/readit/blog-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 14:16:18 GMT -->
+</html>
